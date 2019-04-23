@@ -1,0 +1,28 @@
+.product-title a{
+  text-decoration: none !important;
+    font-weight: 700 !important;
+}
+.sale-price {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.product-qty{
+    float:left;
+    margin-left: 26%;
+}
+.product-qty input[type="text"], .product-qty input[type="number"] {
+    display: inline;
+    height: 100%;
+    padding: 5px !important;
+    width: 40px !important;
+    text-align: center;
+    margin: 0px;
+    border: 1px solid #ccc;
+    font-weight: 700 !important;
+    border-radius: 4px !important;
+}
+.product_cart_block .cart-button{
+    border-radius: 4px !important;
+    margin-left: -20%;
+    margin-top: 8px;
+}
