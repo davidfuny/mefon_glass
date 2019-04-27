@@ -46,4 +46,17 @@ class user_manage extends CI_Model
         }
 
     }
+
+    public function admin_login($data){
+        $query = $this->db->get_where('administrators', array('email' => $data['email'],'password' => $data['password'],));
+        $result = $query->result();
+//        echo $result;
+        if (count($result)>0){
+            return $query->result_array();
+        }
+        else{
+            return ('false');
+        }
+
+    }
 }

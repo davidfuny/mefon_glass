@@ -98,6 +98,11 @@ class User extends CI_Controller
         }
 
     }
+    public function user_logout()
+    {
+        session_destroy();
+        redirect('/welcome/index/');
+    }
     public function user_dashbord()
     {
 
