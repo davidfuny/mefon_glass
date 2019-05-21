@@ -89,6 +89,10 @@ class Welcome extends CI_Controller {
     {
         $this->load->view('company');
     }
+    public function about()
+    {
+        $this->load->view('about');
+    }
     public function page_product()
     {
         $this->load->view('page_product');

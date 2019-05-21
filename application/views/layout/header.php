@@ -64,25 +64,52 @@ if ($user_language == 'chinese') {
     echo(" <script src='https://recaptcha.net/recaptcha/api.js?hl=zh-CN'></script>");
 }
 ?>
-<!-- BEGIN STYLE CUSTOMIZER -->
-<div class="color-panel">
 
-    <div class="color-mode-icons icon-color"
-         style="background: #c9c9c9 url('<?= base_url('assets/pages/img/' . $user_language . '.png'); ?>') center no-repeat;"></div>
-    <div class="color-mode-icons icon-color-close"></div>
+<style>
+    .dropbtn {
+        font: 400 18px "PT Sans Narrow", Arial, sans-serif;
+        text-transform: uppercase;
+    }
 
-    <div class="color-mode">
-        <p>SELECT LANGUAGE</p>
-        <ul class="inline">
-            <li><a href="<?php echo site_url('language/index/english') ?>"><img
-                            src="<?= base_url('assets/pages/img/english.png'); ?>" style="width: 20px" alt=""></a></li>
-            <li><a href="<?php echo site_url('language/index/chinese') ?>"><img
-                            src="<?= base_url('assets/pages/img/chinese.png'); ?>" style="width: 20px" alt=""></a></li>
-        </ul>
-    </div>
-</div>
-<!-- END BEGIN STYLE CUSTOMIZER -->
+    .dropdown {
+    position: relative;
+    display: inline-block;
 
+    }
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    }
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+    .dropdown a:hover {background-color: #ddd;}
+
+    .show {display: block;}
+
+    .dropbtn:hover,.dropbtn:focus {
+        outline: 0;
+        box-shadow: none!important;
+        color: red;
+    }
+    .flag{
+        width: 20px;
+        margin-top: -3px;
+    }
+    @media (max-width: 1024px){
+        .dropbtn {
+            margin-top: 10px;
+        }
+    }
+</style>
 <!-- Header BEGIN -->
 <div class="header header-mobi-ext">
     <div class="container">
@@ -92,22 +119,30 @@ if ($user_language == 'chinese') {
                 <a class="scroll site-logo" href="#promo-block"><img src="<?php echo base_url(); ?>assets/pages/img/logo/logo.png" style="width: 110px"></a>
             </div>
             <!-- Logo END -->
-            <a href="javascript:void(0);" class="mobi-toggler"><i class="fa fa-bars"></i></a>
+            <a href="#" class="mobi-toggler"><i class="fa fa-bars"></i></a>
             <!-- Navigation BEGIN -->
             <div class="col-md-10 pull-right">
                 <ul class="header-navigation">
                     <li><a href="<?php echo site_url('welcome/') ?>"><?= $this->lang->line('home'); ?></a></li>
-                    <li><a href="">About</a></li>
+                    <li><a href="<?php echo site_url('welcome/about') ?>">About</a></li>
                     <li><a href="<?php echo site_url('welcome/page_product') ?>">Proudcts</a></li>
                     <li><a href="<?php echo site_url('user/user_dashbord') ?>">test</a></li>
-                    <li><a href="<?php echo site_url('welcome/page_company') ?>">Company</a></li>
+                    <li><a href="<?php echo site_url('welcome/page_company') ?>">Business</a></li>
+
                     <?php if (isset($_SESSION["useremail"])) {?>
                         <li><a href="<?php echo site_url('user/user_dashbord') ?>">My account</a></li>
                         <li><a href="<?php echo site_url('user/user_dashbord') ?>"><i class="fa fa-fw fa-sign-out"></i> logout</a></li>
-                   <?php }else{ ?>
-                    <li><a href="" data-toggle="modal" data-target="#register"><?= $this->lang->line('person'); ?></a></li>
+                    <?php }else{ ?>
+                        <li><a href="" data-toggle="modal" data-target="#register"><?= $this->lang->line('customer'); ?></a></li>
                     <?php }?>
+                    <li class="dropdown">
+                        <button onclick="show_dropdown()" class="dropbtn" style="background-color:white;border: none;"><img src="<?= base_url('assets/pages/img/'.$user_language.'.png'); ?>" class="flag"  alt="">&nbsp;<?=$this->lang->line('lang');?>  <i class="fa fa-caret-down"></i></button>
+                        <div class="dropdown-content" id="myDropdown">
+                            <a href="<?php echo site_url('language/index/english') ?>"><img src="<?= base_url('assets/pages/img/english.png'); ?>" class="flag"  alt=""> <?= $this->lang->line('english'); ?></a>
+                            <a href="<?php echo site_url('language/index/chinese') ?>"><img src="<?= base_url('assets/pages/img/chinese.png'); ?>"  class="flag"  alt=""> <?= $this->lang->line('chines'); ?></a>
 
+                        </div>
+                    </li>
                 </ul>
             </div>
             <!-- Navigation END -->
@@ -115,6 +150,28 @@ if ($user_language == 'chinese') {
     </div>
 </div>
 <!-- Header END -->
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function show_dropdown() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
 <!--Modal: Login / Register Form-->
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog cascading-modal" role="document">
@@ -160,8 +217,8 @@ if ($user_language == 'chinese') {
                                             <strong>Please fill out form!</strong></div>
                                     </div>
                                     <div class="text-center mt-2">
-                                    <button type="button" class="btn btn-success" id="signin_button">Sign in</button>
-<!--                                        <button class="btn btn-success" id="signin_button">Sign in</button>-->
+                                        <button type="button" class="btn btn-success" id="signin_button">Sign in</button>
+                                        <!--                                        <button class="btn btn-success" id="signin_button">Sign in</button>-->
                                     </div>
                                 </div>
                             </div>

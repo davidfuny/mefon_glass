@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Admin Panel | </title>
+    <title>Admin Panel</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <meta name="Vectorcoder" content="http://ionicecommerce.com">
 
-    <link rel="icon" href="" type="image/gif">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/pages/img/logo/logo.png">
 
     <!-- Bootstrap 3.3.6 -->
     <link href="<?php echo base_url(); ?>assets/admin/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css" />
@@ -60,7 +60,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="{{ URL::to('admin/dashboard/this_month')}}" class="logo">
+        <a href="#" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini" style="font-size:12px"><b>Admin</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -183,8 +183,8 @@
                         <span>category </span> <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="#"><a href=""><i class="fa fa-circle-o"></i> categories</a></li>
-                        <li class="#"><a href=""><i class="fa fa-circle-o"></i>sub categorys</a></li>
+                        <li class="#"><a href="<?php echo site_url('admin/category') ?>"><i class="fa fa-circle-o"></i> categories</a></li>
+                        <li class="#"><a href="#"><i class="fa fa-circle-o"></i>sub categorys</a></li>
                     </ul>
                 </li>
 

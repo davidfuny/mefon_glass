@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin - Start Bootstrap Template</title>
+    <title>Mefon</title>
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/pages/img/logo/logo.png">
     <!-- Bootstrap core CSS-->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Pathway+Gothic+One|PT+Sans+Narrow:400+700|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all"
           rel="stylesheet" type="text/css">
@@ -66,7 +67,7 @@
 
     <a class="navbar-brand" href="index.html"><img src="<?php echo base_url(); ?>assets/pages/img/logo/logo.png" style="width: 110px;"></a>
     <a href="javascript:void(0);" class="mobi-toggler" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-       aria-label="Toggle navigation" style="right: 0;"></i></a>
+       aria-label="Toggle navigation" style="right: 0;"><i class="fa fa-bars" style="margin-left: 7px;margin-top:7px"></i></a>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav top-menu">
             <li class="nav-item"><a class="nav-link" href="<?php echo site_url('welcome/') ?>">HOME</a></li>
